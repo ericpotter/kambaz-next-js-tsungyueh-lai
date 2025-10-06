@@ -1,76 +1,103 @@
+import ModulesControls from "./ModulesControls";
+import {ListGroup, ListGroupItem} from "react-bootstrap";
+import {BsGripVertical} from "react-icons/bs";
+import ModuleControlButtons from "./ModuleControlButtons";
+import LessonControlButtons from "./LessonControlButtons";
+
 export default function Modules() {
     return (
         <div>
-            <div id="wd-module-buttons">
-                <button>Collapse All</button>
-                <button>View Progress</button>
-                <select defaultValue="Publish All" id="wd-publish">
-                    <option value="Publish All">Publish All</option>
-                </select>
-                <button>+ Module</button>
-            </div>
-            <ul id="wd-modules">
-                <li className="wd-module">
-                    <div className="wd-title">Week 1</div>
-                    <ul className="wd-lessons">
-                        <li className="wd-lesson">
-                            <span className="wd-title">Getting Started</span>
-                            <ul className="wd-content">
-                                <li className="wd-content-item">What is GitHub? Create account</li>
-                                <li className="wd-content-item">Install Git, basic setup</li>
-                                <li className="wd-content-item">Create first repository</li>
-                                <li className="wd-content-item">Learn basic commands (add, commit, push)</li>
-                                <li className="wd-content-item">Practice with simple project</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li className="wd-module">
-                    <div className="wd-title">Week 2</div>
-                    <ul className="wd-lessons">
-                        <li className="wd-lesson">
-                            <span className="wd-title">Branching & Collaboration</span>
-                            <ul className="wd-content">
-                                <li className="wd-content-item">Create and switch branches</li>
-                                <li className="wd-content-item">Merge branches, resolve conflicts</li>
-                                <li className="wd-content-item">Pull requests basics</li>
-                                <li className="wd-content-item">Issues and project management</li>
-                                <li className="wd-content-item">Team collaboration exercise</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li className="wd-module">
-                    <div className="wd-title">Week 3</div>
-                    <ul className="wd-lessons">
-                        <li className="wd-lesson">
-                            <span className="wd-title">Advanced Features</span>
-                            <ul className="wd-content">
-                                <li className="wd-content-item">Fork repositories, contribute to others</li>
-                                <li className="wd-content-item">GitHub Pages for websites</li>
-                                <li className="wd-content-item">GitHub Actions introduction</li>
-                                <li className="wd-content-item">Advanced Git commands</li>
-                                <li className="wd-content-item">Build complete project</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li className="wd-module">
-                    <div className="wd-title">Week 4</div>
-                    <ul className="wd-lessons">
-                        <li className="wd-lesson">
-                            <span className="wd-title">Professional Use</span>
-                            <ul className="wd-content">
-                                <li className="wd-content-item">Security best practices</li>
-                                <li className="wd-content-item">Code reviews and quality</li>
-                                <li className="wd-content-item">Team workflows</li>
-                                <li className="wd-content-item">Build professional profile</li>
-                                <li className="wd-content-item">Final project presentation</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ModulesControls /><br /><br /><br /><br />
+            <ListGroup className="rounded-0" id="wd-modules">
+                <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
+                    <div className="wd-title p-3 ps-2 bg-secondary">
+                        <BsGripVertical className="me-2 fs-3" /> Week 1 <ModuleControlButtons />
+                    </div>
+                    <ListGroup className="wd-lessons rounded-0">
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> WHAT IS GITHUB? CREATE ACCOUNT <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> INSTALL GIT, BASIC SETUP <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> CREATE FIRST REPOSITORY <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> LEARN BASIC COMMANDS (ADD, COMMIT, PUSH) <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> PRACTICE WITH SIMPLE PROJECT <LessonControlButtons />
+                        </ListGroupItem>
+                    </ListGroup>
+                </ListGroupItem>
+                <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
+                    <div className="wd-title p-3 ps-2 bg-secondary">
+                        <BsGripVertical className="me-2 fs-3" /> Week 2 <ModuleControlButtons />
+                    </div>
+                    <ListGroup className="wd-lessons rounded-0">
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> CREATE AND SWITCH BRANCHES <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> MERGE BRANCHES, RESOLVE CONFLICTS <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> PULL REQUESTS BASICS <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> ISSUES AND PROJECT MANAGEMENT <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> TEAM COLLABORATION EXERCISE <LessonControlButtons />
+                        </ListGroupItem>
+                    </ListGroup>
+                </ListGroupItem>
+                <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
+                    <div className="wd-title p-3 ps-2 bg-secondary">
+                        <BsGripVertical className="me-2 fs-3" /> Week 3 <ModuleControlButtons />
+                    </div>
+                    <ListGroup className="wd-lessons rounded-0">
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> FORK REPOSITORIES, CONTRIBUTE TO OTHERS <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> GITHUB PAGES FOR WEBSITES <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> GITHUB ACTIONS INTRODUCTION <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> ADVANCED GIT COMMANDS <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> BUILD COMPLETE PROJECT <LessonControlButtons />
+                        </ListGroupItem>
+                    </ListGroup>
+                </ListGroupItem>
+                <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-gray">
+                    <div className="wd-title p-3 ps-2 bg-secondary">
+                        <BsGripVertical className="me-2 fs-3" /> Week 4 <ModuleControlButtons />
+                    </div>
+                    <ListGroup className="wd-lessons rounded-0">
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> SECURITY BEST PRACTICES <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> CODE REVIEWS AND QUALITY <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> TEAM WORKFLOWS <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> BUILD PROFESSIONAL PROFILE <LessonControlButtons />
+                        </ListGroupItem>
+                        <ListGroupItem className="wd-lesson p-3 ps-1">
+                            <BsGripVertical className="me-2 fs-3" /> FINAL PROJECT PRESENTATION <LessonControlButtons />
+                        </ListGroupItem>
+                    </ListGroup>
+                </ListGroupItem>
+            </ListGroup>
         </div>
     );
 }

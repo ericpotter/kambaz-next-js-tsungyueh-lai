@@ -1,113 +1,97 @@
+import {Button, Col, Form, FormCheck, FormControl, FormLabel, FormSelect, Row} from "react-bootstrap";
+
 export default function AssignmentEditor() {
     return (
         <div id="wd-assignments-editor">
-            <label htmlFor="wd-name"><h2>Assignment Name</h2></label>
-            <input id="wd-name" defaultValue="A1 - GIT BASICS + REPOSITORY SETUP" /><br /><br />
-            <textarea id="wd-description" rows={10} cols={50}>
-                This assignment is available online. Submit a link to your GitHub repository containing your personal profile setup. The repository should include the following: Your complete README.md file with professional introduction, technical skills list, education background, and contact information. At least 5 meaningful commits showing progression of work. Professional profile picture uploaded. Repository must be public with proper naming conventions. Include .gitignore file appropriate for your project type. Add MIT license file. Create proper folder structure with src/, docs/, and assets/ directories. All commit messages must follow conventional commit format. Repository description should be concise and professional.
-            </textarea>
-            <br />
-            <table>
-                <tbody>
-                    <tr>
-                        <td align="right" valign="top">
-                            <label htmlFor="wd-points">Points</label>
-                        </td>
-                        <td>
-                            <input id="wd-points" defaultValue={100} />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top">
-                            <label htmlFor="wd-group">Assignment Group</label>
-                        </td>
-                        <td>
-                            <select id="wd-group" defaultValue="Assignment">
-                                <option value="Assignment">Assignment</option>
-                                <option value="Project">Project</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top">
-                            <label htmlFor="wd-display-grade-as">Display Grade as</label>
-                        </td>
-                        <td>
-                            <select id="wd-display-grade-as" defaultValue="Percentage">
-                                <option value="Percentage">Percentage</option>
-                                <option value="Points">Points</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top">
-                            <label htmlFor="wd-submission-type">Submission Type</label>
-                        </td>
-                        <td>
-                            <select id="wd-submission-type" defaultValue="Online">
+            <h2>Assignment Name</h2>
+            <Form>
+                <FormControl type="text" id="wd-name" defaultValue="A1 - GIT BASICS + REPOSITORY SETUP" className="mb-3"/>
+                <FormControl as="textarea" id="wd-description" rows={10}
+                             defaultValue="This assignment is available online. Submit a link to your GitHub repository containing your personal profile setup. The repository should include the following: Your complete README.md file with professional introduction, technical skills list, education background, and contact information. At least 5 meaningful commits showing progression of work. Professional profile picture uploaded. Repository must be public with proper naming conventions. Include .gitignore file appropriate for your project type. Add MIT license file. Create proper folder structure with src/, docs/, and assets/ directories. All commit messages must follow conventional commit format. Repository description should be concise and professional."
+                             className="mb-3"
+                />
+                <Row className="mb-3">
+                    <FormLabel column sm={2} className="text-end">Points</FormLabel>
+                    <Col sm={10}>
+                        <FormControl type="number" id="wd-points" defaultValue={100} />
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <FormLabel column sm={2} className="text-end">Assignment Group</FormLabel>
+                    <Col sm={10}>
+                        <FormSelect id="wd-group" defaultValue="Assignment">
+                            <option value="Assignment">ASSIGNMENTS</option>
+                            <option value="Project">PROJECTS</option>
+                        </FormSelect>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <FormLabel column sm={2} className="text-end">Display Grade as</FormLabel>
+                    <Col sm={10}>
+                        <FormSelect id="wd-display-grade-as" defaultValue="Percentage">
+                            <option value="Percentage">Percentage</option>
+                            <option value="Points">Points</option>
+                        </FormSelect>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <FormLabel column sm={2} className="text-end">Submission Type</FormLabel>
+                    <Col sm={10}>
+                        <fieldset className="border rounded p-3">
+                            <FormSelect id="wd-submission-type" defaultValue="Online" className="mb-3">
                                 <option value="Online">Online</option>
                                 <option value="File">File</option>
-                            </select><br/>
+                            </FormSelect>
+
                             <div id="wd-submission-type-online">
-                                <label htmlFor="wd-submission-type-options">Online Entry Options</label><br/>
-                                <input type="checkbox" name="check-online-entry" id="wd-text-entry"/>
-                                <label htmlFor="wd-text-entry">Text Entry</label><br/>
+                                <FormLabel className="fw-bold">Online Entry Options</FormLabel>
 
-                                <input type="checkbox" name="check-online-entry" id="wd-website-url"/>
-                                <label htmlFor="wd-website-url">Website URL</label><br/>
-
-                                <input type="checkbox" name="check-online-entry" id="wd-media-recordings"/>
-                                <label htmlFor="wd-media-recordings">Media Recordings</label><br/>
-
-                                <input type="checkbox" name="check-online-entry" id="wd-student-annotation"/>
-                                <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
-
-                                <input type="checkbox" name="check-online-entry" id="wd-file-upload"/>
-                                <label htmlFor="wd-file-upload">File Uploads</label>
+                                <FormCheck type="checkbox" id="wd-text-entry" label="Text Entry" name="check-online-entry"/>
+                                <FormCheck type="checkbox" id="wd-website-url" label="Website URL" name="check-online-entry"/>
+                                <FormCheck type="checkbox" id="wd-media-recordings" label="Media Recordings" name="check-online-entry"/>
+                                <FormCheck type="checkbox" id="wd-student-annotation" label="Student Annotation" name="check-online-entry"/>
+                                <FormCheck type="checkbox" id="wd-file-upload" label="File Uploads" name="check-online-entry"/>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top">
-                            <label htmlFor="wd-assign">Assign</label>
-                        </td>
-                        <td>
-                            <div id="wd-assign">
-                                <label htmlFor="wd-assign-to">Assign To</label><br/>
-                                <input id="wd-assign-t" defaultValue="Everyone" /><br/>
-
-                                <label htmlFor="wd-due-date">Due</label><br/>
-                                <input type="date" id="wd-due-date" defaultValue="2023-09-26" /><br/>
-
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td align="left" valign="top">
-                                                <label htmlFor="wd-available-from">Available From</label><br/>
-                                                <input type="date" id="wd-available-from" defaultValue="2023-09-19" /><br/>
-                                            </td>
-                                            <td >
-                                                <label htmlFor="wd-available-until">Until</label><br/>
-                                                <input type="date" id="wd-available-until" defaultValue="2023-10-03" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        </fieldset>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <FormLabel column sm={2} className="text-end">Assign</FormLabel>
+                    <Col sm={10}>
+                        <fieldset id="wd-assign" className="border rounded p-3">
+                            <FormLabel>Assign to</FormLabel>
+                            <div className="border rounded p-2 mb-3 d-flex flex-wrap gap-2">
+                                <span className="badge bg-light text-dark border gap-1">
+                                    Everyone
+                                    <button type="button" className="btn-close fs-7" aria-label="Remove"></button>
+                                </span>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colSpan={2}>
-                            <hr/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" valign="top" colSpan={2}>
-                            <button id="wd-cancel">Cancel</button>
-                            <button id="wd-save">Save</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <FormLabel>Due</FormLabel>
+                            <FormControl type="datetime-local" id="wd-due-date" defaultValue="2024-05-13T23:59" className="mb-3"/>
+                            <Row>
+                                <Col md={6}>
+                                    <FormLabel>Available From</FormLabel>
+                                    <FormControl type="datetime-local" id="wd-available-from" defaultValue="2024-05-06T00:00" className="mb-3"
+                                    />
+                                </Col>
+                                <Col md={6}>
+                                    <FormLabel>Until</FormLabel>
+                                    <FormControl type="datetime-local" id="wd-available-until" defaultValue="2024-05-13T23:59" className="mb-3"
+                                    />
+                                </Col>
+                            </Row>
+                        </fieldset>
+                    </Col>
+                </Row>
+                <hr />
+                <div className="text-end">
+                    <Button variant="secondary" id="wd-cancel" className="me-2">
+                        Cancel
+                    </Button>
+                    <Button variant="danger" id="wd-save">
+                        Save
+                    </Button>
+                </div>
+            </Form>
         </div>
     );}

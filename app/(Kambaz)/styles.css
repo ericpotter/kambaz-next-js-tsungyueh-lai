@@ -1,0 +1,64 @@
+body   {
+    margin: 0;
+    padding: 0;
+}
+body * {
+    font-family: Arial,
+    Helvetica, sans-serif;
+}
+.wd-dashboard-course {
+    width: 300px;
+}
+.wd-dashboard-course-description {
+    height: 100px;
+}
+.check-icon {
+    top: 2px;
+}
+.uncheck-icon {
+    top: 2px;
+}
+.plus-icon {
+    bottom: 3px;
+}
+@media (min-width: 768px) {
+    #wd-kambaz .wd-main-content-offset {
+        padding-left: 140px !important;
+    }
+}
+.list-group.wd > .list-group-item.active {
+    color: black;
+    background-color: white;
+    border-left: 3px solid black !important;
+}
+.btn-secondary {
+    --bs-btn-color: #000 !important;
+    --bs-btn-bg: #c7cdd1 !important;
+    --bs-btn-border-color: #c7cdd1 !important;
+    --bs-btn-hover-color: #fff !important;
+}
+.bg-secondary {
+    --bs-secondary-rgb: 199, 205, 209;
+}
+.list-group-item {
+    --bs-list-group-border-color: gray;
+}
+.wd-lesson {
+    border-left: 3px solid green !important;
+    border-right: 0;
+}
+.wd-lesson:last-child {
+    border-bottom: 0 !important;
+}
+.wd-module {
+    border-top: 1px solid gray !important;
+}
+.wd-assignment-col:not(:last-child) {
+    border-right: 2px solid gray !important;
+}
+#wd-course-status {
+    width: 350px;
+}
+#wd-kambaz-navigation {
+    width: 110px;
+}
