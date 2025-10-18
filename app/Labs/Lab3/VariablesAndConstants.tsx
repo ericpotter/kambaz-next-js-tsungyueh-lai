@@ -1,9 +1,8 @@
 export default function VariablesAndConstants() {
-    // var functionScoped = 2;
-    // let blockScoped = 5;
-    // const constant1 = functionScoped - blockScoped;
-    const functionScoped = 2;
-    const blockScoped = 5;
+    // eslint-disable-next-line no-var
+    var functionScoped = 2;
+    // eslint-disable-next-line prefer-const
+    let blockScoped = 5;
     const constant1 = functionScoped - blockScoped;
     return(
         <div id="wd-variables-and-constants">
