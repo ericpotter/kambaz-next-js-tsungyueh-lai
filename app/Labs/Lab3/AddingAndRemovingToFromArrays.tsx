@@ -16,12 +16,13 @@ export default function AddingAndRemovingToFromArrays() {
     return (
         <div id="wd-adding-removing-from-arrays">
             <h4>Add/remove to/from arrays</h4>
-            numberArray1 = {numberArray1} <br />
-            numberArray3 = {numberArray3} <br />
-            stringArray1 = {stringArray1} <br />
-            stringArray3 = {stringArray3} <br />
+            numberArray1 = {numberArray1} <br/>
+            numberArray3 = {numberArray3} <br/>
+            stringArray1 = {stringArray1} <br/>
+            stringArray3 = {stringArray3} <br/>
             Todo list:
-            <ol>{todoArray}</ol><hr />
+            <ol>{todoArray}</ol>
+            <hr/>
         </div>
     );
 }

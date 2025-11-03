@@ -1,4 +1,5 @@
 import './Classes.css';
+
 export default function Classes() {
     const color = 'blue';
     const dangerous = true;
@@ -13,7 +14,8 @@ export default function Classes() {
             </div>
             <div className={`${dangerous ? 'wd-bg-red' : 'wd-bg-green'} wd-fg-black wd-padding-10px`}>
                 Dangerous background
-            </div><hr/>
+            </div>
+            <hr/>
         </div>
     )
 };

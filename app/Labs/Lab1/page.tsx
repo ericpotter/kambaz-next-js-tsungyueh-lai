@@ -5,12 +5,21 @@ export default function Lab1() {
             <h3>HTML Examples</h3>
             <div id="wd-h-tag">
                 <h4>Heading Tags</h4>
-                Text documents are often broken up into several sections and subsections. Each section is usually prefaced with a short title or heading that attempts to summarize the topic of the section it precedes. For instance this paragraph is preceded by the heading Heading Tags. The font of the section headings are usually larger and bolder than their subsection headings. This document uses headings to introduce topics such as HTML Documents, HTML Tags, Heading Tags, etc. HTML heading tags can be used to format plain text so that it renders in a browser as large headings. There are 6 heading tags for different sizes: h1, h2, h3, h4, h5, and h6. Tag h1 is the largest heading and h6 is the smallest heading.
+                Text documents are often broken up into several sections and subsections. Each section is usually
+                prefaced with a short title or heading that attempts to summarize the topic of the section it precedes.
+                For instance this paragraph is preceded by the heading Heading Tags. The font of the section headings
+                are usually larger and bolder than their subsection headings. This document uses headings to introduce
+                topics such as HTML Documents, HTML Tags, Heading Tags, etc. HTML heading tags can be used to format
+                plain text so that it renders in a browser as large headings. There are 6 heading tags for different
+                sizes: h1, h2, h3, h4, h5, and h6. Tag h1 is the largest heading and h6 is the smallest heading.
             </div>
             <div id="wd-p-tag">
                 <h4>Paragraph Tag</h4>
                 <p id="wd-p-1">
-                    This is a paragraph. We often separate a long set of sentences with vertical spaces to make the text easier to read. Browsers ignore vertical white spaces and render all the text as one single set of sentences. To force the browser to add vertical spacing, wrap the paragraphs you want to separate with the paragraph tag
+                    This is a paragraph. We often separate a long set of sentences with vertical spaces to make the text
+                    easier to read. Browsers ignore vertical white spaces and render all the text as one single set of
+                    sentences. To force the browser to add vertical spacing, wrap the paragraphs you want to separate
+                    with the paragraph tag
                 </p>
                 <p id="wd-p-2">
                     This is the first paragraph. The paragraph tag is used to format
@@ -153,29 +162,30 @@ export default function Lab1() {
             </div>
             <div id="wd-images">
                 <h4>Image tag</h4>
-                Loading an image from the internet: <br />
-                <img id="wd-starship" width="400px" src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg" />
-                <br />
+                Loading an image from the internet: <br/>
+                <img id="wd-starship" width="400px"
+                     src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"/>
+                <br/>
                 Loading a local image:
-                <br />
-                <img id="wd-teslabot" src="/images/teslabot.jpg" height="200px" />
+                <br/>
+                <img id="wd-teslabot" src="/images/teslabot.jpg" height="200px"/>
             </div>
             <div id="wd-forms">
                 <h4>Form Elements</h4>
                 <form id="wd-text-fields">
                     <h5>Text Fields</h5>
                     <label htmlFor="wd-text-fields-username">Username:</label>
-                    <input placeholder="jdoe" id="wd-text-fields-username" /> <br />
+                    <input placeholder="jdoe" id="wd-text-fields-username"/> <br/>
                     <label htmlFor="wd-text-fields-password">Password:</label>
-                    <input type="password" defaultValue="123@#$asd" id="wd-text-fields-password" />
-                    <br />
+                    <input type="password" defaultValue="123@#$asd" id="wd-text-fields-password"/>
+                    <br/>
                     <label htmlFor="wd-text-fields-first-name">First name:</label>
-                    <input type="text" title="The first name" id="wd-text-fields-first-name" /> <br />
+                    <input type="text" title="The first name" id="wd-text-fields-first-name"/> <br/>
                     <label htmlFor="wd-text-fields-last-name">Last name:</label>
                     <input type="text" placeholder="Doe"
                            defaultValue="Wonderland"
                            title="The last name"
-                           id="wd-text-fields-last-name" />
+                           id="wd-text-fields-last-name"/>
                     <h5>Text boxes</h5>
                     <label>Biography:</label><br/>
                     <textarea id="wd-textarea" cols={30} rows={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
@@ -183,16 +193,16 @@ export default function Lab1() {
 
                     <h5 id="wd-radio-buttons">Radio buttons</h5>
 
-                    <label>Favorite movie genre:</label><br />
+                    <label>Favorite movie genre:</label><br/>
 
                     <input type="radio" name="radio-genre" id="wd-radio-comedy"/>
-                    <label htmlFor="wd-radio-comedy">Comedy</label><br />
+                    <label htmlFor="wd-radio-comedy">Comedy</label><br/>
 
                     <input type="radio" name="radio-genre" id="wd-radio-drama"/>
-                    <label htmlFor="wd-radio-drama">Drama</label><br />
+                    <label htmlFor="wd-radio-drama">Drama</label><br/>
 
                     <input type="radio" name="radio-genre" id="wd-radio-scifi"/>
-                    <label htmlFor="wd-radio-scifi">Science Fiction</label><br />
+                    <label htmlFor="wd-radio-scifi">Science Fiction</label><br/>
                     <input type="radio" name="radio-genre" id="wd-radio-fantasy"/>
                     <label htmlFor="wd-radio-fantasy">Fantasy</label>
                     <h5 id="wd-checkboxes">Checkboxes</h5>
@@ -212,22 +222,23 @@ export default function Lab1() {
                     <h4 id="wd-dropdowns">Dropdowns</h4>
 
                     <h5>Select one</h5>
-                    <label  htmlFor="wd-select-one-genre"> Favorite movie genre: </label><br/>
+                    <label htmlFor="wd-select-one-genre"> Favorite movie genre: </label><br/>
                     <select id="wd-select-one-genre">
                         <option value="COMEDY">Comedy</option>
                         <option value="DRAMA">Drama</option>
                         <option selected value="SCIFI">
-                            Science Fiction</option>
+                            Science Fiction
+                        </option>
                         <option value="FANTASY">Fantasy</option>
                     </select>
 
                     <h5>Select many</h5>
-                    <label  htmlFor="wd-select-many-genre"> Favorite movie genres: </label><br/>
+                    <label htmlFor="wd-select-many-genre"> Favorite movie genres: </label><br/>
                     <select multiple id="wd-select-many-genre">
-                        <option value="COMEDY" selected> Comedy          </option>
-                        <option value="DRAMA">           Drama           </option>
-                        <option value="SCIFI"  selected> Science Fiction </option>
-                        <option value="FANTASY">         Fantasy         </option>
+                        <option value="COMEDY" selected> Comedy</option>
+                        <option value="DRAMA"> Drama</option>
+                        <option value="SCIFI" selected> Science Fiction</option>
+                        <option value="FANTASY"> Fantasy</option>
                     </select>
                     <h4>Other HTML field types</h4>
 

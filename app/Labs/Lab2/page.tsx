@@ -52,12 +52,12 @@ export default function Lab2() {
                         places in the document
                         <p className="wd-selector-3">
                             This paragraph&#39;s red background is referenced as
-                            <br />
-                            .selector-2 .selector3<br />
-                            meaning the descendant of some ancestor.<br />
+                            <br/>
+                            .selector-2 .selector3<br/>
+                            meaning the descendant of some ancestor.<br/>
                             <span className="wd-selector-4">
                                 Whereas this span is a direct child of its parent
-                            </span><br />
+                            </span><br/>
                             You can combine these relationships to create specific
                             styles depending on the document structure
                         </p>
@@ -101,7 +101,8 @@ export default function Lab2() {
                 <div className="wd-padded-bottom-right wd-border-fat wd-border-blue wd-border-solid wd-bg-color-yellow">
                     Padded bottom right
                 </div>
-                <div className="wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
+                <div
+                    className="wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
                     Padded all around
                 </div>
             </div>
@@ -162,7 +163,8 @@ export default function Lab2() {
                             Portrait
                         </div>
                     </div>
-                    <div className="wd-pos-relative-nudge-up-right wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
+                    <div
+                        className="wd-pos-relative-nudge-up-right wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
                         Landscape
                     </div>
                     <div className="wd-bg-color-red wd-dimension-square">
@@ -178,16 +180,19 @@ export default function Lab2() {
                         Portrait
                     </div>
                     <div className="wd-pos-absolute-50-50 wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
-                        Landscape</div>
+                        Landscape
+                    </div>
                     <div className="wd-pos-absolute-120-20 wd-bg-color-red wd-dimension-square">
                         Square
                     </div>
-                </div><br /><br /><br /><br /><br /><br /><br />
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/>
             </div>
 
             <div id="wd-css-position-fixed">
                 <h2>Fixed position</h2>
-                Checkout the blue square that says &#34;Fixed position&#34; stuck all the way on the right and half way down the page. It doesn&#39;t scroll with the rest of the page. Its position is &#34;Fixed&#34;.
+                Checkout the blue square that says &#34;Fixed position&#34; stuck all the way on the right and half way
+                down the page. It doesn&#39;t scroll with the rest of the page. Its position is &#34;Fixed&#34;.
                 <div className="wd-pos-fixed wd-dimension-square wd-bg-color-blue wd-fg-color-white">
                     Fixed position
                 </div>

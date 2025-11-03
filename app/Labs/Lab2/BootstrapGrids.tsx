@@ -1,4 +1,4 @@
-import {Row, Col} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 export default function BootstrapGrids() {
     return (
@@ -89,7 +89,7 @@ export default function BootstrapGrids() {
                     <Col xs={12} sm={6} md={4} lg={3} xl={2} xxl={1} className="bg-danger text-white">
                         <h4>11</h4>
                     </Col>
-                    <Col  xs={12} sm={6} md={4} lg={3} xl={2} xxl={1} className="bg-success text-white">
+                    <Col xs={12} sm={6} md={4} lg={3} xl={2} xxl={1} className="bg-success text-white">
                         <h4>12</h4>
                     </Col>
                 </Row>
