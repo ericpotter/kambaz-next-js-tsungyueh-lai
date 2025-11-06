@@ -7,6 +7,7 @@ import { RootState } from "../../store";
 import { Button, FormControl, FormSelect } from "react-bootstrap";
 
 export default function Profile() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [profile, setProfile] = useState<any>({});
     const dispatch = useDispatch();
     const router = useRouter();
