@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {FormControl} from "react-bootstrap";
+
 export default function Signup() {
     return (
         <div id="wd-signin-screen">

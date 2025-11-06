@@ -5,4 +5,5 @@ function Inbox() {
         </div>
     );
 }
+
 export default Inbox;
