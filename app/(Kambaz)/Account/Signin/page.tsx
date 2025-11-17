@@ -1,31 +1,21 @@
 "use client"
 import Link from "next/link";
-import { Button, FormControl } from "react-bootstrap";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
-import * as db from "../../Database";
-import { setCurrentUser } from "../reducer";
+import {Button, FormControl} from "react-bootstrap";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {setCurrentUser} from "../reducer";
+import * as client from "../client";
+import {redirect} from "next/dist/client/components/navigation";
 
 export default function Signin() {
-    const [credentials, setCredentials] = useState({ username: "", password: "" });
+    const [credentials, setCredentials] = useState({username: "", password: ""});
     const dispatch = useDispatch();
-    const router = useRouter();
 
-    const signin = () => {
-        const user = db.users.find(
-            (u) =>
-                u.username === credentials.username &&
-                u.password === credentials.password
-        );
-
-        if (!user) {
-            alert("Invalid username or password");
-            return;
-        }
-
+    const signin = async () => {
+        const user = await client.signin(credentials);
+        if (!user) return;
         dispatch(setCurrentUser(user));
-        router.push("/Dashboard");
+        redirect("/Dashboard");
     };
 
     return (
@@ -34,14 +24,14 @@ export default function Signin() {
             <FormControl
                 id="wd-username"
                 value={credentials.username}
-                onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+                onChange={(e) => setCredentials({...credentials, username: e.target.value})}
                 placeholder="username"
                 className="mb-2"
             />
             <FormControl
                 id="wd-password"
                 value={credentials.password}
-                onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+                onChange={(e) => setCredentials({...credentials, password: e.target.value})}
                 placeholder="password"
                 type="password"
                 className="mb-2"

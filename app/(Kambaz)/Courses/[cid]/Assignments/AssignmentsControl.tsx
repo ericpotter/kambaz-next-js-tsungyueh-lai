@@ -3,11 +3,11 @@ import {Button, FormControl, InputGroup} from "react-bootstrap";
 import {CiSearch} from "react-icons/ci";
 import InputGroupText from "react-bootstrap/InputGroupText";
 import {FaPlus} from "react-icons/fa6";
-import {useParams, useRouter} from "next/navigation"; // ← 1. 引入這兩個
+import {useParams, useRouter} from "next/navigation";
 
 export default function AssignmentsControl() {
-    const {cid} = useParams();      // ← 2. 取得課程 ID
-    const router = useRouter();        // ← 3. 取得 router
+    const {cid} = useParams();
+    const router = useRouter();
 
     return (
         <div id="wd-assignment-control-button" className="text-nowrap">

@@ -1,11 +1,13 @@
 "use client"
+import * as client from "../../../client";
 import { Button, Col, Form, FormCheck, FormControl, FormLabel, FormSelect, Row } from "react-bootstrap";
 import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { addAssignment, updateAssignment } from "../reducer";
+import { addAssignment, updateAssignment, setAssignments } from "../reducer";
 import { RootState } from "../../../../store";
 import { useState, useEffect } from "react";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function AssignmentEditor() {
     const { cid, aid } = useParams();
     const router = useRouter();
@@ -13,10 +15,6 @@ export default function AssignmentEditor() {
     const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
 
     const isEditMode = aid !== "new";
-
-    const existingAssignment = isEditMode
-        ? assignments.find((a) => a._id === aid)
-        : null;
 
     const [assignment, setAssignment] = useState({
         _id: "",
@@ -29,29 +27,48 @@ export default function AssignmentEditor() {
         course: cid as string
     });
 
-    useEffect(() => {
-        if (existingAssignment) {
-            setAssignment({
-                _id: existingAssignment._id,
-                title: existingAssignment.title,
-                description: existingAssignment.description || "",
-                points: existingAssignment.points,
-                due: existingAssignment.due,
-                available: existingAssignment.available,
-                until: existingAssignment.until || "",
-                course: cid as string
-            });
-        }
-    }, [existingAssignment, cid]);
+    const fetchAssignments = async () => {
+        const assignments = await client.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    };
 
-    // 5️⃣ 儲存（新增或更新）
-    const handleSave = () => {
+    useEffect(() => {
+        fetchAssignments();
+    }, []);
+
+    useEffect(() => {
         if (isEditMode) {
-            dispatch(updateAssignment(assignment));
-        } else {
-            dispatch(addAssignment(assignment));
+            const existingAssignment = assignments.find((a: any) => a._id === aid);
+            if (existingAssignment) {
+                setAssignment({
+                    _id: existingAssignment._id,
+                    title: existingAssignment.title,
+                    description: existingAssignment.description || "",
+                    points: existingAssignment.points,
+                    due: existingAssignment.due,
+                    available: existingAssignment.available,
+                    until: existingAssignment.until || "",
+                    course: cid as string
+                });
+            }
         }
-        router.push(`/Courses/${cid}/Assignments`);
+    }, [assignments, aid, isEditMode, cid]);
+
+    const handleSave = async () => {
+        try {
+            if (isEditMode) {
+                await client.updateAssignment(assignment);
+                dispatch(setAssignments(assignments.map((a: any) =>
+                    a._id === assignment._id ? assignment : a
+                )));
+            } else {
+                const newAssignment = await client.createAssignmentForCourse(cid as string, assignment);
+                dispatch(setAssignments([...assignments, newAssignment]));
+            }
+            router.push(`/Courses/${cid}/Assignments`);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const handleCancel = () => {
@@ -113,6 +130,7 @@ export default function AssignmentEditor() {
                         </FormSelect>
                     </Col>
                 </Row>
+
                 <Row className="mb-3">
                     <FormLabel column sm={2} className="text-end">Submission Type</FormLabel>
                     <Col sm={10}>

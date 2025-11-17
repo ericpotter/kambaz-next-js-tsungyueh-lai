@@ -1,12 +1,13 @@
 "use client"
-import { useState } from "react";
+import * as client from "../../client";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import ModulesControls from "./ModulesControls";
 import { FormControl, ListGroup, ListGroupItem } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import ModuleControlButtons from "./ModuleControlButtons";
 import LessonControlButtons from "./LessonControlButtons";
-import { addModule, deleteModule, editModule, updateModule } from "./reducer";
+import { addModule, deleteModule, editModule, updateModule, setModules } from "./reducer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
@@ -18,6 +19,33 @@ export default function Modules() {
     const { currentUser } = useSelector((state: RootState) => state.accountReducer);
     const dispatch = useDispatch();
 
+    const fetchModules = async () => {
+        const modules = await client.findModulesForCourse(cid as string);
+        dispatch(setModules(modules));
+    };
+
+    const onCreateModuleForCourse = async () => {
+        if (!cid) return;
+        const newModule = { name: moduleName, course: cid as string };
+        const createModule = await client.createModuleForCourse(cid as string, newModule);
+        dispatch(setModules([...modules, createModule]));
+    };
+
+    const onRemoveModule = async (moduleId: string) => {
+        await client.deleteModule(moduleId);
+        dispatch(setModules(modules.filter((m: any) => m._id !== moduleId)));
+    };
+
+    const onUpdateModule = async (module: any) => {
+        await client.updateModule(module);
+        const newModules = modules.map((m: any) => m._id === module._id ? module : m );
+        dispatch(setModules(newModules));
+    };
+
+    useEffect(() => {
+        fetchModules();
+    }, []);
+
     const isFaculty = (currentUser as any)?.role === "FACULTY";
 
     return (
@@ -26,17 +54,13 @@ export default function Modules() {
                 <ModulesControls
                     moduleName={moduleName}
                     setModuleName={setModuleName}
-                    addModule={() => {
-                        dispatch(addModule({ name: moduleName, course: cid }));
-                        setModuleName("");
-                    }}
+                    addModule={onCreateModuleForCourse}
                 />
             )}
             <br/><br/><br/>
 
             <ListGroup className="rounded-0" id="wd-modules">
                 {modules
-                    .filter((module) => module.course === cid)
                     .map((module: any) => (
                         <ListGroupItem key={module._id} className="wd-module p-0 mb-5 fs-5 border-gray">
                             <div className="wd-title p-3 ps-2 bg-secondary">
@@ -50,7 +74,7 @@ export default function Modules() {
                                         }
                                         onKeyDown={(e) => {
                                             if (e.key === "Enter") {
-                                                dispatch(updateModule({ ...module, editing: false }));
+                                                onUpdateModule({ ...module, editing: false });
                                             }
                                         }}
                                         defaultValue={module.name}
@@ -59,9 +83,7 @@ export default function Modules() {
                                 {isFaculty && (
                                     <ModuleControlButtons
                                         moduleId={module._id}
-                                        deleteModule={(moduleId) => {
-                                            dispatch(deleteModule(moduleId));
-                                        }}
+                                        deleteModule={(moduleId) => onRemoveModule(moduleId)}
                                         editModule={(moduleId) => dispatch(editModule(moduleId))}
                                     />
                                 )}
