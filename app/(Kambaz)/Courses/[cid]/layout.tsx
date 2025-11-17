@@ -7,10 +7,11 @@ import {useParams} from "next/navigation";
 import {RootState} from "../../store";
 import Breadcrumb from "./Breadcrumb";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function CoursesLayout({children}: { children: ReactNode }) {
     const {cid} = useParams();
     const {courses} = useSelector((state: RootState) => state.coursesReducer);
-    const course = courses.find((course) => course._id === cid);
+    const course = courses.find((course: any) => course._id === cid);
 
     const [showNavigation, setShowNavigation] = useState(true);
 
