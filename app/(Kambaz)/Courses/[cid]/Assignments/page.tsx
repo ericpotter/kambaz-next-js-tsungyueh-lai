@@ -1,25 +1,25 @@
 "use client"
 import * as client from "../../client";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { Col, Container, ListGroup, ListGroupItem, Row, Button } from "react-bootstrap";
-import { BsGripVertical } from "react-icons/bs";
+import {useParams} from "next/navigation";
+import {Button, Col, Container, ListGroup, ListGroupItem, Row} from "react-bootstrap";
+import {BsGripVertical} from "react-icons/bs";
 import AssignmentsControlButton from "./AssignmentsControlButtons";
-import { MdAssignment } from "react-icons/md";
+import {MdAssignment} from "react-icons/md";
 import ControlButtons from "./ControlButtons";
 import AssignmentsControl from "./AssignmentsControl";
-import { format } from 'date-fns';
-import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment, setAssignments } from "./reducer";
-import { RootState } from "../../../store";
-import { FaTrash } from "react-icons/fa";
-import { useEffect } from "react";
+import {format} from 'date-fns';
+import {useDispatch, useSelector} from "react-redux";
+import {setAssignments} from "./reducer";
+import {RootState} from "../../../store";
+import {FaTrash} from "react-icons/fa";
+import {useEffect} from "react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function Assignments() {
-    const { cid } = useParams();
-    const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
-    const { currentUser } = useSelector((state: RootState) => state.accountReducer);
+    const {cid} = useParams();
+    const {assignments} = useSelector((state: RootState) => state.assignmentsReducer);
+    const {currentUser} = useSelector((state: RootState) => state.accountReducer);
     const dispatch = useDispatch();
 
     const isFaculty = (currentUser as any)?.role === "FACULTY";
@@ -62,7 +62,7 @@ export default function Assignments() {
 
     return (
         <div id="wd-assignments">
-            {isFaculty && <AssignmentsControl />}
+            {isFaculty && <AssignmentsControl/>}
             <br/><br/><br/><br/>
 
             <ListGroup className="rounded-0" id="wd-assignments">
@@ -119,7 +119,7 @@ export default function Assignments() {
                                                             variant="danger"
                                                             size="sm"
                                                             onClick={() => handleDelete(assignment._id, assignment.title)}>
-                                                            <FaTrash />
+                                                            <FaTrash/>
                                                         </Button>
                                                     </>
                                                 )}

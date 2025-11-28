@@ -4,6 +4,7 @@ import {usePathname} from "next/navigation";
 import {useSelector} from "react-redux";
 import {RootState} from "../store";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function AccountNavigation() {
     const pathname = usePathname();
 
@@ -26,10 +27,23 @@ export default function AccountNavigation() {
                         pathname.includes(link.label)
                             ? "active"
                             : "text-danger"
-                    }`}>
+                    }`}
+                >
                     {link.label}
                 </Link>
             ))}
+            {currentUser && (currentUser as any).role === "ADMIN" && (
+                <Link
+                    href="/Account/Users"
+                    className={`list-group-item text-center border-0 ${
+                        pathname.endsWith("Users")
+                            ? "active"
+                            : "text-danger"
+                    }`}
+                >
+                    Users
+                </Link>
+            )}
         </div>
     );
 }
